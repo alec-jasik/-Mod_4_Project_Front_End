@@ -8,15 +8,17 @@ import { render } from '@testing-library/react';
 import MyTeam from './components/MyTeam'
 // import PlayerCard from './components/PlayerCard'
 import Players from './components/Players'
-// import LogIn from './components/LogIn'
+import LogIn from './components/LogIn'
+import SignUp from './components/SignUp';
 
 export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <div>
-          {/* <LogIn /> */}
           <NavigationBar />
+          <Route exact path="/" render={(routeProps) => <LogIn {...routeProps} />} />
+          <Route exact path="/signup" render={(routeProps) => <SignUp {...routeProps} />} />
           <Route path= "/players" component= {Players} />
           <Route path= "/myteam" component= {MyTeam} />
         </div>
@@ -24,3 +26,4 @@ export default class App extends Component {
     ); 
   } 
 }
+
