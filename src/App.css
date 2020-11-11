@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+/* #root, #player-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+#team-header {
+  text-align: center;
+    }
+.wrapper {
+  display:grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-column-gap:0;
+  background-color: #D0D0D0;
+}
+.player-card {
+  border-style: solid;
+  margin: 5px;
+  text-align: center;
+  font-size: 15px;
+}
