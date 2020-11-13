@@ -33,6 +33,7 @@ export default class LogIn extends Component {
       console.log(userInfo)
       localStorage.token = userInfo.token
     })
+    this.props.history.push('/myteam')
 }
 
   handleSignUp = () => {
