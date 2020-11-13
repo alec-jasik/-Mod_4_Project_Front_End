@@ -18,7 +18,7 @@ export default class Players extends Component {
 }
 
 generateTeamCards = () => {
-     let myteam = this.state.team.find(t=> t.id ===5)
+     let myteam = this.state.team.find(t=> t.id ===1)
      console.log(this.state.team)
 }
 

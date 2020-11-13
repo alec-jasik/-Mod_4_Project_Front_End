@@ -19,7 +19,7 @@ export default class Players extends Component {
     })
 }
     generatePlayerCards = () => {
-        return this.state.playerdata.map(player => <PlayerCard name = {player.name} overall = {player.overall} playerimg = {player.player_img} teamname = {player.team_name} />)
+        return this.state.playerdata.map(player => <PlayerCard key = {player.id} name = {player.name} overall = {player.overall} playerimg = {player.player_img} teamname = {player.team_name} />)
         console.log(PlayerCard)
     }
 
