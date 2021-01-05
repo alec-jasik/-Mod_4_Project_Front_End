@@ -11,7 +11,8 @@ export default class PlayerCard extends Component {
                <img src={this.props.playerimg}alt = "avatar" width = "200" height = "150"/> &nbsp; &nbsp; &nbsp; &nbsp; 
                <span> 
                 {this.props.name}
-                </span>     
+                </span>    
+                &nbsp;  <button type="button" className="add-button" onClick={()=>this.props.addPlayer()} >Add to MyTeam</button>
             </div>
         )
     }
