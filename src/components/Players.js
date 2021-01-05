@@ -19,10 +19,13 @@ export default class Players extends Component {
     })
 }
     generatePlayerCards = () => {
-        return this.state.playerdata.map(player => <PlayerCard key = {player.id} name = {player.name} overall = {player.overall} playerimg = {player.player_img} teamname = {player.team_name} />)
+        return this.state.playerdata.map(player => <PlayerCard key = {player.id} name = {player.name} overall = {player.overall} playerimg = {player.player_img} teamname = {player.team_name} addPlayer = {this.addPlayer} />)
         console.log(PlayerCard)
     }
 
+    addPlayer = () => {
+        console.log('its working')
+    }
     render() {
         return (
             <div className = "wrapper"> 
