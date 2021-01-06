@@ -63,8 +63,23 @@ export default class App extends Component {
     }  
   }
 
-  addPlayer = () => {
-    console.log('its working')
+  addPlayer = (player) => {
+    // console.log('its working')
+
+    fetch('http://localhost:3000/teams',
+    {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(player)
+    })
+    .then(res=>res.json())
+    .then(data=> data
+      // this.setState({
+      // team: [...this.state.team]
+      // })
+    )
   }
 
   removePlayer = () => {
