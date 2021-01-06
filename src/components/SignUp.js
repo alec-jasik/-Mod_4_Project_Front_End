@@ -28,8 +28,17 @@ export default class SignUp extends Component {
             })
         })
         .then(res => res.json())
-        .then(console.log())
-        this.props.history.push('/myteam')
+        .then(userInfo => {
+            if(userInfo.error){
+                alert(userInfo.error)
+              }
+              else{
+                console.log(userInfo)
+                localStorage.token = userInfo.token
+                this.props.history.push('/myteam')
+              }
+            }
+        )
     }
 
     render() {

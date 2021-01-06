@@ -14,7 +14,7 @@ export const NavigationBar = () => (
         <Nav className="ml-auto">
         <Nav.Item><Nav.Link href="/myteam">My Team</Nav.Link></Nav.Item> 
           <Nav.Item><Nav.Link href="/players">Players</Nav.Link></Nav.Item> 
-          <Nav.Item><Nav.Link href="/about">Exhibition</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link href="/exhibition">Exhibition</Nav.Link></Nav.Item>
         </Nav>
         </center>s
     </Navbar>

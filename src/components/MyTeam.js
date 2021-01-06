@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PlayerCard from './PlayerCard';
+import { NavigationBar } from './NavigationBar';
 
 export default class Players extends Component {
     state = {
@@ -25,13 +26,14 @@ generateTeamCards = () => {
 render() {
     return(
         <div>
+            <NavigationBar />
             <h1 id= "team-header">
                 My team:
             </h1>
              <div className= "wrapper">
                 {this.generateTeamCards()}
              </div>
-         </div>
+        </div>
     )
 }
 }
