@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavigationBar from './NavigationBar'
 // import PlayerCard from './PlayerCard';
 
 

@@ -14,7 +14,7 @@ import LogIn from './components/LogIn'
 import SignUp from './components/SignUp';
 import Exhibition from './components/Exhibition';
 
-class App extends Component {
+export default class App extends Component {
   
   state = {
     allplayerdata: [],
@@ -34,7 +34,7 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(user => {
-        console.log(user)
+        // console.log(user)
         this.setState({
           username: user.username,
           players: user.players,
@@ -51,20 +51,13 @@ class App extends Component {
           allplayerdata: data
       })
     })
-    fetch('http://localhost:3000/api/v1/teams')
-    .then(res=>res.json())
-    .then(data=> {
-        // note that this will change to t where user id = current user id  
-        this.setState({
-          allplayerdata: data,
-        });
-      });
+    
     fetch("http://localhost:3000/api/v1/teams")
       .then((res) => res.json())
       .then((data) => {
         // note that this will change to t where user id = current user id
         let current_team = data.find((t) => t.id === 2);
-        console.log(current_team.players)
+        // console.log(current_team.players)
         this.setState({
           team: current_team.id,
           players: current_team.players,
@@ -74,7 +67,7 @@ class App extends Component {
 
   generatePlayerCards = () => {
     if (this.state.allplayerdata) {
-      return this.state.allplayerdata.map((player) => (
+      return this.state.allplayerdata.map(player => (
         <PlayerCard
           key={player.id}
           player={player}
@@ -178,4 +171,3 @@ class App extends Component {
     );
   }
 }
-
