@@ -51,19 +51,7 @@ export default class App extends Component {
           allplayerdata: data
       })
     })
-    
-    fetch("http://localhost:3000/api/v1/teams")
-      .then((res) => res.json())
-      .then((data) => {
-        // note that this will change to t where user id = current user id
-        let current_team = data.find((t) => t.id === 2);
-        // console.log(current_team.players)
-        this.setState({
-          team: current_team.id,
-          players: current_team.players,
-        });
-      });
-  }
+  } 
 
   generatePlayerCards = () => {
     if (this.state.allplayerdata) {
@@ -80,7 +68,7 @@ export default class App extends Component {
 
   generateTeamCards = () => {
     if (this.state.team) {
-      return this.state.players.map((player) => (
+      return this.state.players.map(player => (
 
         <TeamCard
           key={player.id}
