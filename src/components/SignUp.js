@@ -9,8 +9,8 @@ export default class SignUp extends Component {
     }
 
     handleChange = (e) => {
-        console.log(this.state)
-        console.log(e.target.name)
+        // console.log(this.state)
+        // console.log(e.target.name)
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -19,27 +19,27 @@ export default class SignUp extends Component {
     signUp = (e) => {
         e.preventDefault()
         fetch("http://localhost:3000/api/v1/users", {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify({
-                user: { username: this.state.username, password: this.state.password}
-            })
+          method: "POST",
+          headers: {
+            "Content-type": "application/json"
+          },
+          body: JSON.stringify({
+            user: { username: this.state.username, password: this.state.password }
+          })
         })
-        .then(res => res.json())
-        .then(userInfo => {
-            if(userInfo.error){
-                alert(userInfo.error)
-              }
-              else{
-                console.log(userInfo)
-                localStorage.token = userInfo.token
-                this.props.history.push('/myteam')
-              }
+          .then(res => res.json())
+          .then(userInfo => {
+            if (userInfo.error) {
+              alert(userInfo.error)
             }
-        )
-    }
+            else {
+              console.log(userInfo.user.username)
+              this.props.handleUsername(userInfo.user.username)
+              localStorage.token = userInfo.token
+              this.props.history.push('/myteam')
+            }
+          })
+      }
 
     render() {
         return (
