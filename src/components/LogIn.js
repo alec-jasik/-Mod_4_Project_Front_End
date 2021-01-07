@@ -6,15 +6,20 @@ export default class LogIn extends Component {
   state = {
     username: "",
     password: ""
+  } 
+
+  handleSignUp = () => {
+    // console.log(this.props)
+    this.props.history.push('/signup')
   }
 
   handleChange = (e) => {
-    console.log(this.state)
-    // console.log(e.target.name)
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+        // console.log(this.state)
+        // console.log(e.target.name)
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
   logIn = (e) => {
     e.preventDefault()
@@ -28,22 +33,19 @@ export default class LogIn extends Component {
         password: this.state.password
       })
     })
-      .then(res => res.json())
-      .then(userInfo => {
+    .then(res => res.json())
+    .then(userInfo => {
         if (userInfo.error) {
           alert(userInfo.error)
         }
         else {
           console.log(userInfo.username)
           localStorage.token = userInfo.token
+          this.props.handleUsername(userInfo.username)
           this.props.history.push('/myteam')
         }
-      })
-  }
-
-  handleSignUp = () => {
-    // console.log(this.props)
-    this.props.history.push('/signup')
+      }
+    )
   }
 
   render() {

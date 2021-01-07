@@ -78,3 +78,16 @@
   color: black;
   font-size: 10px;
 }
+
+.username {
+  position: fixed;
+  color: #9FFFCB;
+  top: 1%;
+  left: 50%;
+  margin-left: -100px;
+}
+
+.logOut{
+  position: absolute;
+  left: 94%;
+}
