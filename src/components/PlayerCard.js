@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 
 export default class PlayerCard extends Component {
     render() {
+        
+        let {team_name, overall, player_img, name} = this.props.player
+
         return(
             <div className = "player-card">
-             {this.props.teamname} &nbsp;
+             {team_name} &nbsp;
               <div /*text-align= "right" align-items= "right"justify-content= "right"*/>
-               OVR: {this.props.overall} 
+               OVR: {overall} 
               </div>
-               <img src={this.props.playerimg}alt = "avatar" width = "200" height = "150"/> &nbsp; &nbsp; &nbsp; &nbsp; 
+               <img src={player_img}alt = "avatar" width = "200" height = "150"/> &nbsp; &nbsp; &nbsp; &nbsp; 
                <span> 
-                {this.props.name}
+                {name}
                 </span>    
-                &nbsp;  <button type="button" className="add-button" onClick={()=>this.props.addPlayer()} >Add to MyTeam</button>
+                &nbsp;  <button type="button" className="add-button" onClick={()=>this.props.addPlayer(this.props.player.id, this.props.team)} >Add to MyTeam</button>
             </div>
         )
     }

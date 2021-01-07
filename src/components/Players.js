@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PlayerCard from './PlayerCard';
-import NavigationBar from './NavigationBar';
+// import PlayerCard from './PlayerCard';
+
 
 
 
