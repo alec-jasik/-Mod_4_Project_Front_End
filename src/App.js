@@ -34,14 +34,16 @@ export default class App extends Component {
       })
       .then(resp => resp.json())
       .then(user => {
-        // console.log(user)
+        console.log(user)
         this.setState({
-          username: user.username,
-          players: user.players,
           team: user.team.id,
+          players: user.players,
+          username: user.username,
           user: user
         })
+        console.log(this.state)
       })
+       
     }
 
     fetch('http://localhost:3000/api/v1/players')
@@ -64,6 +66,7 @@ export default class App extends Component {
         />
       ));
     }
+    console.log(this.state)
   };
 
   generateTeamCards = () => {

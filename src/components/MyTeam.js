@@ -21,7 +21,7 @@ export default class Players extends Component {
                 <NavigationBar username={this.props.username} logOut={this.props.logOut} />
                 <h1 id="team-header">
                     My team:
-            </h1>
+                </h1>
                 <div className="wrapper">
                     {this.props.generateTeamCards()}
                 </div>
