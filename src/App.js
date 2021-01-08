@@ -86,7 +86,7 @@ export default class App extends Component {
   addPlayer = (player, teamid) => {
     let playerIsOnTeam = () => {
       let teamplayer = this.state.players.filter(
-        (p) => p.id == player.id
+        (p) => p.id === player.id
       );
 
       if (teamplayer.length > 0) {
@@ -125,18 +125,14 @@ export default class App extends Component {
     }
   };
 
-  removePlayer = () => {
-    fetch("http://localhost:3000/api/v1/player_teams", {
+  removePlayer = (playerid, teamid) => {
+    fetch(`http://localhost:3000/api/v1/player_teams/${teamid}`, {
           method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(),
-        })
-          .then((res) => res.json())
-          .then((data) => data,
-          );
-  };
+    })
+      .then((res) => res.json())
+    let updatedPlayers = [...this.state.players].filter(player => player.id !== playerid)
+    this.setState({players: updatedPlayers})
+  }
 
   handleUsername = (username) => {
     

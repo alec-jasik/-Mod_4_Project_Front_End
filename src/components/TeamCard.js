@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class TeamCard extends Component {
     render() {
 
-        let {team_name, overall, player_img, name} = this.props.player
+        let {team_name, overall, player_img, name, id} = this.props.player
 
         return(
             <div className ="team-card">
@@ -15,7 +15,7 @@ export default class TeamCard extends Component {
                <span> 
                 {name}
                 </span>    
-                &nbsp;  <button type="button" className="remove-button" onClick={()=>this.props.removePlayer()} >Remove Player</button>
+                &nbsp;  <button type="button" className="remove-button" onClick={()=>this.props.removePlayer(id, this.props.team )} >Remove Player</button>
             </div>
         )
     }

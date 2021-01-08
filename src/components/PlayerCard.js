@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class PlayerCard extends Component {
     render() {
         
-        let {team_name, overall, player_img, name} = this.props.player
+        let {team_name, overall, player_img, name, id} = this.props.player
 
         return(
             <div className = "player-card">
@@ -15,7 +15,7 @@ export default class PlayerCard extends Component {
                <span> 
                 {name}
                 </span>    
-                &nbsp;  <button type="button" className="add-button" onClick={()=>this.props.addPlayer(this.props.player.id, this.props.team)} >Add to MyTeam</button>
+                &nbsp;  <button type="button" className="add-button" onClick={()=>this.props.addPlayer(id, this.props.team)} >Add to MyTeam</button>
             </div>
         )
     }
