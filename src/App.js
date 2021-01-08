@@ -92,6 +92,7 @@ export default class App extends Component {
         return false;
       }
     };
+
     if (this.state.players.length < 5) {
       if (playerIsOnTeam()) {
         alert("This player is already on your team");
@@ -109,12 +110,14 @@ export default class App extends Component {
         })
           .then((res) => res.json())
           .then((data) =>
+          console.log(data),
             this.setState({
               players: [...this.state.players, player],
             })
           );
       }
-    } else {
+    } 
+    else {
       alert("You already have 5 players on your team");
     }
   };

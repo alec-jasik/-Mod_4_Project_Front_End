@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import NavigationBar from './NavigationBar';
+import court from '../img/court.jpg'
+
+var backgroundImage = {
+  backgroundImage: `url(${court})`,
+  width: '100%',
+  height: '100%',
+  backgroundSize: 'cover' 
+};
 
 export default class Exhibition extends Component {
 
@@ -17,7 +25,9 @@ export default class Exhibition extends Component {
     return (
       <div>
         <NavigationBar username={this.props.username} logOut={this.props.logOut}/>
-        {"this is the exhibition component"}
+        <div style = {backgroundImage}>
+
+        </div>
       </div>
     );
   }
