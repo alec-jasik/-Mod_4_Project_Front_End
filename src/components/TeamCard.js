@@ -15,7 +15,7 @@ export default class TeamCard extends Component {
                <span> 
                 {name}
                 </span>    
-                &nbsp;  <button type="button" className="remove-button" onClick={()=>this.props.removePlayer(id, this.props.team )} >Remove Player</button>
+                &nbsp;  <button type="button" className="remove-button" onClick={()=>this.props.removePlayer(id, this.props.playerteams)} >Remove Player</button>
             </div>
         )
     }

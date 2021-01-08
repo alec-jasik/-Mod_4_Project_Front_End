@@ -6,7 +6,7 @@ export default class Players extends Component {
 
     componentDidMount() {
         if (localStorage.token) {
-            console.log('Logged in')
+            // console.log('Logged in')
         }
         else {
             alert("You must be logged in to access this page!")

@@ -20,6 +20,7 @@ export default class App extends Component {
     allplayerdata: [],
     team: null,
     players:[],
+    playerteams: [],
     username: "",
     user: null
   }   
@@ -34,14 +35,14 @@ export default class App extends Component {
       })
       .then(resp => resp.json())
       .then(user => {
-        console.log(user)
+        // console.log(user)
         this.setState({
           team: user.team.id,
           players: user.players,
           username: user.username,
           user: user
         })
-        console.log(this.state)
+        // console.log(this.state)
       })
        
     }
@@ -77,6 +78,7 @@ export default class App extends Component {
           key={player.id}
           player={player}
           team={this.state.team}
+          playerteams={this.state.playerteams}
           removePlayer={this.removePlayer}
         />
       ));
@@ -112,12 +114,12 @@ export default class App extends Component {
           body: JSON.stringify(player_team_data),
         })
           .then((res) => res.json())
-          .then((data) =>
-          console.log(data),
+          .then((data) => 
             this.setState({
               players: [...this.state.players, player],
+              playerteams: [...this.state.playerteams, data]
             })
-          );
+          );  
       }
     } 
     else {
@@ -125,8 +127,8 @@ export default class App extends Component {
     }
   };
 
-  removePlayer = (playerid, teamid) => {
-    fetch(`http://localhost:3000/api/v1/player_teams/${teamid}`, {
+  removePlayer = (playerid, playerteamid) => {
+    fetch(`http://localhost:3000/api/v1/player_teams/${playerteamid}`, {
           method: "DELETE",
     })
       .then((res) => res.json())
@@ -154,7 +156,7 @@ export default class App extends Component {
           <Route exact path="/signup" render={(routeProps) => <SignUp {...routeProps} signUp={this.signUp} handleUsername={this.handleUsername} username={this.state.username} />} />
           <Route path= "/players" render={(props) => (<Players {...props} generatePlayerCards={this.generatePlayerCards} addPlayer={this.addPlayer} isAuthed={true} username={this.state.username} />)} />
           <Route path= "/myteam" render={(props) => (<MyTeam {...props} generateTeamCards={this.generateTeamCards} removePlayer={this.removePlayer} isAuthed={true} username={this.state.username} />)} />
-          <Route path= "/exhibition" render={(props) => (<Exhibition {...props} username={this.state.username} logOut={this.props.logOut} />)}/>
+          <Route path= "/exhibition" render={(props) => (<Exhibition {...props} username={this.state.username} generateTeamCards={this.generateTeamCards} players={this.state.players}logOut={this.props.logOut} />)}/>
 
         </div>
       </BrowserRouter>
